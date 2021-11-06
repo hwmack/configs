@@ -2,6 +2,13 @@
 # Init the Starship prompt
 starship init fish | source
 
+# Remove the greeting
+set --universal fish_greeting
+
+# Set to Vim
+fish_vi_key_bindings
+# to disable: fish_default_key_bindings
+
 ##############################################
 #
 # ENVIRONMENT VARIABLES
@@ -33,8 +40,6 @@ alias c cargo
 
 # Git shortcuts
 alias g git
-alias gc "git checkout"
-alias ga "git add -p"
 
 alias ls exa
 alias ll "exa -l"
@@ -64,6 +69,8 @@ alias evim "vim ~/.config/nvim/init.vim"
 
 # Setup fzf when pressing Ctrl+r
 bind -M insert \cr 'commandline -j (history | fzf)'
+
+bind -M insert \e\x7f backward-kill-word
 
 
 ##############################################
@@ -109,6 +116,6 @@ end
 # Now start the session!
 if status is-interactive
 and not set -q TMUX
-    exec tmux
+    exec tmux new-session -s default -A -f $HOME/.config/tmux/tmux.conf
 end
 

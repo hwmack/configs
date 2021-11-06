@@ -4,9 +4,9 @@ add_newline = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]      # The name of the module we are configuring is "character"
-symbol = "➜"     # The "symbol" segment is being set to "➜"
+format = "➜ "     # The "symbol" segment is being set to "➜"
 
-[git_branch]
-symbol = ""
+#[git_branch]
+#symbol = ""
 
 
